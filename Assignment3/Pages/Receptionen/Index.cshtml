@@ -1,0 +1,79 @@
+﻿@page
+@model Assignment3.Pages.Receptionen.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<a asp-page="./ShowCustomers" asp-route-id="ReservationId">ShowCustomers</a>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].RoomNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].NumberOfAdults)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].NumberOfChildren)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Reservation) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfAdults)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfChildren)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+               <a asp-page="./Edit" asp-route-id="@item.ReservationId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ReservationId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ReservationId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<tbody>
+@foreach (var item in Model.Reservation)
+{
+    <tr>
+         <td>
+            @Html.DisplayFor(modelItem => item.RoomNumber)
+         </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.NumberOfAdults)
+         </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.NumberOfChildren)
+         </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Date)
+         </td>
+        
+    </tr>
+}
+    </tbody>

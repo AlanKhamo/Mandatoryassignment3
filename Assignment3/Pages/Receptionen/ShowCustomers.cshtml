@@ -1,0 +1,55 @@
+﻿@page
+@model Assignment3.Pages.Receptionen.IndexModel
+@{
+}
+
+<h1>Get information</h1>
+    <form method="get">
+        <div class="form-group">
+          <label asp-for="Time" class="control-label"></label>
+          <input id="dateInput" type="date" asp-for="Time" class="form-control" />
+          <span asp-validation-for="Time" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary"/>
+        </div>
+    </form>
+<table class="table">
+     <thead>
+          <tr>
+               <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].RoomNumber)
+               </th>
+               <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].NumberOfChildren)
+               </th>
+               <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].NumberOfAdults)
+               </th>
+               
+          </tr>
+     </thead>
+
+     <tbody>
+        @foreach (var item in Model.Reservation)
+        {
+              <tr>
+                   <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                   </td>
+                   <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfAdults)
+                   </td>
+                   <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfChildren)
+                   </td>
+                   <td>
+                    @Html.DisplayFor(modelItem => item.RoomNumber)
+                   </td>
+                   <td>
+                   </td>
+
+              </tr>
+        }
+     </tbody>
+</table>
