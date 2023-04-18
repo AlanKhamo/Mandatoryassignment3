@@ -14,7 +14,7 @@ using Assignment3.Models;
 
 namespace Assignment3.Pages
 {
-    //[Authorize("CanEnterRestaurant")]
+    [Authorize]
     public class RestaurantModel : PageModel
     {
         private readonly ApplicationDbContext _context;

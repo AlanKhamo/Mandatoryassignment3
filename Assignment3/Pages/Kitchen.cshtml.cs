@@ -9,7 +9,7 @@ using Assignment3.Models;
 
 namespace Assignment3.Pages
 {
-    //[Authorize] // Alle kan komme ind på Kitchen page.
+    [Authorize] // Alle kan komme ind på Kitchen page.
     public class KitchenModel : PageModel
     {
         private readonly ApplicationDbContext _context;

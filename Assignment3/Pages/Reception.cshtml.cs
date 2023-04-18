@@ -1,6 +1,7 @@
 using Assignment3.Data;
 using Assignment3.Hub;
 using Assignment3.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -8,6 +9,8 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace Assignment3.Pages
 {
+
+    [Authorize]
     public class ReceptionModel : PageModel
     {
 
