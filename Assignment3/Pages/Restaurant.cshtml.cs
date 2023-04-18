@@ -43,6 +43,8 @@ namespace Assignment3.Pages
                 return Page();
             }
             
+            checkInd.Date = DateTime.Now;
+
             _context.CheckInd.Add(checkInd);
             await _context.SaveChangesAsync();
             _kitchenHub.Clients.All.KitchenUpdate(); // Signal r
