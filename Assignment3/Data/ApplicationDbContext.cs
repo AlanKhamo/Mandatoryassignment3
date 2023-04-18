@@ -29,8 +29,8 @@ namespace Assignment3.Data
                 .HasKey(d => new { d.Date });
 
             modelBuilder.Entity<Daglig>()
-                .HasMany(c => c.checkInds)
-                .WithOne(b => b.Daglig);
+                .HasMany(c => c.checkInds);
+                //.WithOne(b => b.Daglig);
             modelBuilder.Entity<Daglig>()
                 .HasOne(b => b.Reservation);
                 //.WithOne(e => e.Daglig)
