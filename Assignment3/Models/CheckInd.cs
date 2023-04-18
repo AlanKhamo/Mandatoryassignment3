@@ -11,5 +11,7 @@
 
         public DateTime Date { get; set; }
 
+        public Daglig Daglig { get; set; } = default!;
+
     }
 }
