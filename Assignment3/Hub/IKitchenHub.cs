@@ -1,6 +1,6 @@
 ﻿namespace Assignment3.Hub
 {
-    public interface IKitchen
+    public interface IKitchenHub
     {
         Task KitchenUpdate();
     }

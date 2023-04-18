@@ -1,0 +1,82 @@
+﻿@page
+@model Assignment3.Pages.ReceptionModel
+@{
+    ViewData["Title"] = "Reception";
+}
+
+<form method="post">
+    <div class="broder p-3 mt-4">
+        <div class="rounded pb-2">
+            <h1 class="text-secondary pl-3">Reception</h1>
+            <h2 class="text-primary pl-3">Input quests who has ordered food</h2>
+            <hr />
+        </div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="reservation.RoomNumber"></label>
+        <input asp-for="reservation.Date" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="reservation.NumberOfAdults"></label>
+        <input asp-for="reservation.NumberOfAdults" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="reservation.NumberOfChildren"></label>
+        <input asp-for="reservation.NumberOfChildren" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="damout" title="Date">Date</label>
+        <input asp-for="reservation.Date" />
+    </div>
+
+    <button type="save" class="btn btn-primary">Save</button>
+    <a href="~/Reception" rel="next">
+        <input type="button" class="btn btn-primary" value="Cancel" />
+    </a>
+</form>
+
+<div class="container p-3">
+	<div class="row pt-4">
+		<div class="col-6">
+			<h2 class="text-primary">Reservation liste</h2>
+		</div>
+		<div class="col-6">
+		</div>
+	</div>
+
+	<br /><br />
+
+	<table class="table table-active table-light table-striped">
+		<thead>
+			<tr>
+				<th>
+					Room number
+				</th>
+				<th>
+					Number of adults
+				</th>
+				<th>
+					Number of children
+				</th>
+				<th>
+					Date
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var checkind in Model.CheckInds) // Kører IEnumerable listen i gennem og henter alle properties i Reservation.
+			{
+				<tr>
+					<td width="50%">@checkind.RoomNumber</td>
+					<td width="50%">@checkind.NumberOfAdults</td>
+					<td width="50%">@checkind.NumberOfChildren</td>
+					<td width="50%">@checkind.Date</td>
+				</tr>
+
+			}
+
+		</tbody>
+
+	</table>
+
+</div>

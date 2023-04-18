@@ -2,7 +2,7 @@
 
 namespace Assignment3.Hub
 {
-    public class Kitchen :Hub<IKitchen>
+    public class KitchenHub :Hub<IKitchenHub>
     {
         public async Task Meassge()
         {

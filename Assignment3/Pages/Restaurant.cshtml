@@ -1,0 +1,65 @@
+﻿@page
+@model Assignment3.Pages.RestaurantModel
+
+@{
+    ViewData["Title"] = "Restaurant";
+}
+
+
+
+<form method="post">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+            <h1 class="text-secondary pl-3">Resturant page</h1>
+			<hr />
+		</div>
+        <div class="mb-3">
+            <label asp-for="checkInd.RoomNumber"></label>
+            <input asp-for="checkInd.RoomNumber" class="form-control" />
+
+            <label asp-for="checkInd.NumberOfAdults"></label>
+            <input asp-for="checkInd.NumberOfAdults" class="form-control" />
+
+            <label asp-for="checkInd.NumberOfChildren"></label>
+            <input asp-for="checkInd.NumberOfChildren" class="form-control" />
+
+            <label for="damout" title="Date">Date</label>
+            <input asp-for="checkInd.Date" />
+
+            <button type="submit" class="btn btn-primary">Godkend</button>
+        </div>
+	
+	</div>
+</form>
+
+@*<div class="row">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h1 class="text-primary p-lg-3">resturant page</h1>
+            <h2 class="text-secondary p-lg-3">restaurant</h2>
+
+        </div>
+        <form method="post">
+            <div asp-validation-summary="modelonly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="restaurant.roomnumber" class="control-label"></label> <br />
+                <input asp-for="restaurant.roomnumber" class="form-control" /> <br /> <br></br>
+                <span asp-validation-for="restaurant.roomnumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="restaurant.adults" class="control-label"></label> <br />
+                <input asp-for="restaurant.adults" class="form-control" /> <br /> <br />
+                <span asp-validation-for="restaurant.adults" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="restaurant.kids" class="control-label"></label><br />
+                <input asp-for="restaurant.kids" class="form-control" /><br />
+                <span asp-validation-for="restaurant.kids" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>*@
+

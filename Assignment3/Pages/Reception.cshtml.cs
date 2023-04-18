@@ -3,30 +3,29 @@ using Assignment3.Hub;
 using Assignment3.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.AspNetCore.SignalR;
 
-namespace Assignment3.Pages.Receptionen
+namespace Assignment3.Pages
 {
-    public class ShowCustomersModel : PageModel
+    public class ReceptionModel : PageModel
     {
+
         private readonly ApplicationDbContext _context;
-        private readonly IHubContext<Kitchen, IKitchen> _kitchen;
+        private readonly IHubContext<KitchenHub, IKitchenHub> _KitchenHub;
 
         [BindProperty]
         public Reservation reservation { get; set; }
 
         public IEnumerable<Reservation> Reservations { get; set; }
 
-        public ShowCustomersModel(ApplicationDbContext context, IHubContext<Kitchen, IKitchen> kitchen)
-        {
-            _kitchen = kitchen;
+        public CheckInd checkInd { get; set; }
+        public IEnumerable<CheckInd> CheckInds { get; set; }
+
+        public ReceptionModel(ApplicationDbContext context, IHubContext<KitchenHub, IKitchenHub> KitchenHub) 
+        { 
             _context = context;
-
-        }
-
-        public void OnGet()
-        {
-            Reservations = _context.Reservations;
+            _KitchenHub = KitchenHub;
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -38,9 +37,14 @@ namespace Assignment3.Pages.Receptionen
 
             _context.Reservations.Add(reservation);
             await _context.SaveChangesAsync();
-            _kitchen.Clients.All.KitchenUpdate();
+            _KitchenHub.Clients.All.KitchenUpdate();
 
-            return RedirectToPage("./Receptionen");
+            return RedirectToPage("./Reception");
+        }
+
+        public void OnGet()
+        {
+            CheckInds = _context.CheckInd;
         }
     }
 }
