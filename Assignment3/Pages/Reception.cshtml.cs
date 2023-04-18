@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.SignalR;
 namespace Assignment3.Pages
 {
 
-    [Authorize]
+   // [Authorize]
     public class ReceptionModel : PageModel
     {
 
