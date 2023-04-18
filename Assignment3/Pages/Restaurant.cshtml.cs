@@ -47,7 +47,7 @@ namespace Assignment3.Pages
 
             _context.CheckInd.Add(checkInd);
             await _context.SaveChangesAsync();
-            _kitchenHub.Clients.All.KitchenUpdate(); // Signal r
+            _kitchenHub.Clients.All.KitchenUpdate();
 
             return RedirectToPage("./Index");
         }

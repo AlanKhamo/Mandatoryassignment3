@@ -9,7 +9,7 @@ using Assignment3.Models;
 
 namespace Assignment3.Pages
 {
-    //[Authorize] // Alle kan komme ind på Kitchen page når de er logget ind.
+    //[Authorize] // Alle kan komme ind på Kitchen page.
     public class KitchenModel : PageModel
     {
         private readonly ApplicationDbContext _context;
@@ -24,9 +24,6 @@ namespace Assignment3.Pages
         public int MissingAdults { get; set; }
         public int MissingKids { get; set; }
 
-        //private readonly Kitchen _kitchen;
-        //private readonly Reservation reservation;
-        //private readonly Restaurant restaurant;
 
         [BindProperty] public Intput _input { get; set; }
 		
@@ -73,10 +70,6 @@ namespace Assignment3.Pages
             MissingAdults = ExpectedAdults - CheckedInAdults;
             MissingKids = ExpectedKids - CheckedInKids;
 
-            //var notcheck = await _context.Restaurant && _context.Reservation
-            //    .Where(b => b.Date.Day == _input.Date.Day && b.Date.Month == _input.Date.Month)
-            //    .ToListAsync();
-
         }
 
         public async Task OnPost()
@@ -95,7 +88,7 @@ namespace Assignment3.Pages
             }
 
 
-            // Mangler dato prop til Resturant
+            
             var check = await _context.CheckInd
                .Where(b => b.Date.Day == _input.Date.Day && b.Date.Month == _input.Date.Month)
                .ToListAsync();
