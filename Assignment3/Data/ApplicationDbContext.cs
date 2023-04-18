@@ -32,9 +32,9 @@ namespace Assignment3.Data
                 .HasMany(c => c.checkInds)
                 .WithOne(b => b.Daglig);
             modelBuilder.Entity<Daglig>()
-                .HasOne(b => b.Reservation)
-                .WithOne(e => e.Daglig)
-                .HasForeignKey<Reservation>(e => new {e.Date});
+                .HasOne(b => b.Reservation);
+                //.WithOne(e => e.Daglig)
+                //.HasForeignKey<Reservation>(e => new {e.Date});
         }
     }
 }

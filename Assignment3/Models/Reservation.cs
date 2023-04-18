@@ -13,6 +13,6 @@
 
         //public int Day { get; set; }
         //public int Month { get; set; }
-        public Daglig Daglig { get; set; } = default!;
+        //public Daglig Daglig { get; set; } = default!;
     }
 }
