@@ -16,7 +16,7 @@
 			<label asp-for="_input.Date"></label>
 			<input class="form-control" type="date" data-val="true" asp-for="_input.Date" />
 			<span asp-validation-for="_input.Date" class="text-danger"></span>
-			<button type="submit" class="btn btn-primary">Godkend</button>
+			<button type="submit" class="btn btn-primary">Change Date</button>
 		</div>
 	
 	</div>
@@ -26,20 +26,20 @@
 
 	<thead>
 		<tr>
-			<th>Forventet antal gæster</th>
+			<th>Expected amount of guests</th>
 		</tr>
 	</thead>
 	<tbody">
 		<tr>
-			<td>Voksne:</td>
+			<td>Adults:</td>
 			<td>@Html.DisplayFor(x => x.ExpectedAdults)</td>
 		</tr>
 		<tr>
-			<td>Børn:</td>
+			<td>Children:</td>
 			<td>@Html.DisplayFor(x => x.ExpectedKids)</td>
 		</tr>
 		<tr>
-			<td>Total antal:</td>
+			<td>Total Amount:</td>
 			<td>@Html.DisplayFor(x => x.ExpectedTotal)</td>
 		</tr>
 	</tbody>
@@ -49,16 +49,16 @@
 
 	<thead>
 		<tr>
-			<th>Gæster checket ind </th>
+			<th>Guests checked in </th>
 		</tr>
 	</thead>
 	<tbody">
 		<tr>
-			<td>Voksne checket ind:</td>
+			<td>Adults checked in:</td>
 			<td>@Html.DisplayFor(x => x.CheckedInAdults)</td>
 		</tr>
 		<tr>
-			<td>Børn checket ind:</td>
+			<td>Children cheked in:</td>
 			<td>@Html.DisplayFor(x => x.CheckedInKids)</td>
 		</tr>
 		
@@ -70,16 +70,16 @@
 
 	<thead>
 		<tr>
-			<th>Gæster ikke ind </th>
+			<th>Guests not arrived </th>
 		</tr>
 	</thead>
 	<tbody">
 		<tr>
-			<td>Voksne ikke ind:</td>
+			<td>Adults not arrived:</td>
 			<td>@Html.DisplayFor(x => x.MissingAdults)</td>
 		</tr>
 		<tr>
-			<td>Børn ikke ind:</td>
+			<td>Children not arrived:</td>
 			<td>@Html.DisplayFor(x => x.MissingKids)</td>
 		</tr>
 		
