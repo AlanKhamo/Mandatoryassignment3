@@ -40,7 +40,7 @@ namespace Assignment3.Pages
 
             _context.Reservations.Add(reservation);
             await _context.SaveChangesAsync();
-            _KitchenHub.Clients.All.KitchenUpdate();
+            await _KitchenHub.Clients.All.KitchenUpdate();
 
             return RedirectToPage("./Reception");
         }
