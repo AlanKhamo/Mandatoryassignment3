@@ -7,7 +7,7 @@ namespace Assignment3.Data
     {
         public static void SeedMedarbejder(UserManager<IdentityUser> userManager)
         {
-            const string Email_Medarbejder = "Medarbejder2@localhost";
+            const string Email_Medarbejder = "Medarbejder@localhost";
             const string Password_Medarbekder = "Password1.";
 
             if (userManager == null)
@@ -36,7 +36,7 @@ namespace Assignment3.Data
         public static void SeedTjener(UserManager<IdentityUser> userManager)
         {
 
-            const string TjenerEmail = "Tjener2@localhost";
+            const string TjenerEmail = "Tjener@localhost";
             const string TjenerPassword = "Password2.";
             if (userManager == null)
             {
@@ -63,7 +63,7 @@ namespace Assignment3.Data
 
         public static void SeedAdmin(UserManager<IdentityUser> userManager)
         {
-            const string AdminEmail = "Admin@admin3";
+            const string AdminEmail = "Admin@admin";
             const string AdminPassword = "Admin3.";
             if (userManager == null)
             {
