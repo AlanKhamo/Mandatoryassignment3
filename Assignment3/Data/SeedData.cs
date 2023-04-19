@@ -5,29 +5,30 @@ namespace Assignment3.Data
 {
     public class SeedData
     {
-        public static void SeedMedarbejder(UserManager<IdentityUser> userManger)
+        public static void SeedMedarbejder(UserManager<IdentityUser> userManager)
         {
-            const string Email_Medarbejder = "Medarbejder@localhost";
-            const string Password_Medarbekder = "Password1";
+            const string Email_Medarbejder = "Medarbejder2@localhost";
+            const string Password_Medarbekder = "Password1.";
 
-            if (userManger == null)
+            if (userManager == null)
             {
-                throw new ArgumentNullException(nameof(userManger));
+                throw new ArgumentNullException(nameof(userManager));
             }
 
-            if (userManger.FindByNameAsync(Email_Medarbejder).Result == null)
+            if (userManager.FindByNameAsync(Email_Medarbejder).Result == null)
             {
                 var user = new IdentityUser();
                 user.UserName = Email_Medarbejder;
                 user.Email = Email_Medarbejder;
                 user.EmailConfirmed = true;
-                IdentityResult result = userManger.CreateAsync(user, Password_Medarbekder).Result;
+                IdentityResult result = userManager.CreateAsync(user, Password_Medarbekder).Result;
 
                 if (result.Succeeded)
                 {
-                    var userMedarbejder = userManger.FindByNameAsync(Email_Medarbejder).Result;
-                    var claim = new Claim("Kasper", "Medabejder");
-                    var addClaim = userManger.AddClaimAsync(userMedarbejder, claim).Result;
+                    
+                    var userMedarbejder = userManager.FindByNameAsync(Email_Medarbejder).Result;
+                    var claim = new Claim("Role", "Medabejder");
+                    var addClaim = userManager.AddClaimAsync(userMedarbejder, claim).Result;
                 }
             }
         }
@@ -35,8 +36,8 @@ namespace Assignment3.Data
         public static void SeedTjener(UserManager<IdentityUser> userManager)
         {
 
-            const string TjenerEmail = "Tjener@localhost";
-            const string TjenerPassword = "Password2";
+            const string TjenerEmail = "Tjener2@localhost";
+            const string TjenerPassword = "Password2.";
             if (userManager == null)
             {
                 throw new ArgumentNullException(nameof(userManager));
@@ -57,6 +58,31 @@ namespace Assignment3.Data
                     var addclaim = userManager.AddClaimAsync(Usertjener, claim).Result;
                 }
 
+            }
+        }
+
+        public static void SeedAdmin(UserManager<IdentityUser> userManager)
+        {
+            const string AdminEmail = "Admin@admin3";
+            const string AdminPassword = "Admin3.";
+            if (userManager == null)
+            {
+                throw new ArgumentNullException(nameof(userManager));
+            }
+
+            if (userManager.FindByNameAsync(AdminEmail).Result == null)
+            {
+                var user = new IdentityUser();
+                user.UserName = AdminEmail;
+                user.Email = AdminPassword;
+                user.EmailConfirmed = true;
+                IdentityResult result = userManager.CreateAsync(user, AdminPassword).Result;
+                if (result.Succeeded)
+                {
+                    var adminUser = userManager.FindByNameAsync(AdminEmail).Result;
+                    var claim = new Claim("Role", "Admin");
+                    var claimAdded = userManager.AddClaimAsync(adminUser, claim).Result;
+                }
             }
         }
     }

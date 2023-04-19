@@ -14,8 +14,8 @@ using Assignment3.Models;
 
 namespace Assignment3.Pages
 {
-    //[Authorize]
-    public class RestaurantModel : PageModel
+	[Authorize("ResturantPerm")]
+	public class RestaurantModel : PageModel
     {
         private readonly ApplicationDbContext _context;
         private readonly IHubContext<KitchenHub, IKitchenHub> _kitchenHub;

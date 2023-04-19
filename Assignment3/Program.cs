@@ -15,6 +15,22 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy(
+        "Admin", 
+        policyBuilder => policyBuilder
+            .RequireClaim("Role", "Admin"));
+    options.AddPolicy(
+		"ReceptionPerm",
+        policyBuilder => policyBuilder
+            .RequireClaim("Role", "Medabejder"));
+    options.AddPolicy(
+		"ResturantPerm",
+        polictyBuilder => polictyBuilder
+            .RequireClaim("Role", "Tjener"));
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -34,9 +50,28 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
+
 app.MapRazorPages();
+using (var scope = app.Services.CreateScope())
+{
+    Console.WriteLine("Scope");
+	var serviceProvider = scope.ServiceProvider;
+	var userManager = serviceProvider.GetService<UserManager<IdentityUser>>();
+	if (userManager != null)
+	{
+        Console.WriteLine("Seeding");
+		SeedData.SeedMedarbejder(userManager); // Seeder Medarbejder
+		SeedData.SeedTjener(userManager); // Seeder Tjener
+        SeedData.SeedAdmin(userManager);
+	}
+	else
+	{
+		throw new Exception("Unable to get UserManager!");
+	}
+}
 
 app.MapHub<KitchenHub>("/KitchenHub");
 

@@ -10,8 +10,8 @@ using Microsoft.AspNetCore.SignalR;
 namespace Assignment3.Pages
 {
 
-   // [Authorize]
-    public class ReceptionModel : PageModel
+	[Authorize("ReceptionPerm")]
+	public class ReceptionModel : PageModel
     {
 
         private readonly ApplicationDbContext _context;
