@@ -51,8 +51,8 @@ namespace Assignment3.Pages
 
             foreach (var item in expected)
             {
-                ExpectedAdults = item.NumberOfAdults;
-                ExpectedKids = item.NumberOfAdults;
+                ExpectedAdults += item.NumberOfAdults;
+                ExpectedKids += item.NumberOfAdults;
                 ExpectedTotal = ExpectedAdults + ExpectedKids;
 
             }
@@ -81,8 +81,8 @@ namespace Assignment3.Pages
 
             foreach (var item in expected)
             {
-                ExpectedAdults = item.NumberOfAdults;
-                ExpectedKids = item.NumberOfChildren;
+                ExpectedAdults += item.NumberOfAdults;
+                ExpectedKids += item.NumberOfChildren;
                 ExpectedTotal = ExpectedAdults + ExpectedKids;
 
             }
